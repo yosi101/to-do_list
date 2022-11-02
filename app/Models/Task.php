@@ -12,6 +12,6 @@ class Task extends Model
     protected $fillable = [
         'name',
         'completed',
-        'created_at'
+        'completed_at'
     ];
 }

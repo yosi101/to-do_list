@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Task;
+use Illuminate\Support\Carbon;
 
 class TaskController extends Controller
 {
@@ -39,17 +40,27 @@ class TaskController extends Controller
     // updates a specific task
     public function update(Request $request, $task)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'min:3', 'max:100']
-        ]);
 
-        Task::find($task)->update([
-            'name' => $request->name
-        ]);
+        $existingTask = Task::find($task);
+
+        if($existingTask->completed == true) {
+            $existingTask->update([
+                'completed' => false,
+                'completed_at' => Carbon::now()
+            ]);
+        }elseif($existingTask->completed == false){
+            $existingTask->update([
+                'completed' => true,
+                'completed_at' => Carbon::now()
+            ]);
+        }else{
+            return 'Task does not exist';
+        }
 
         return response()->json([
-            'message' => 'Task updated successfully'
+            'message' => 'Task updated successfully',
         ]);
+
     }
 
     // destroys specific task
