@@ -2,7 +2,6 @@ import {createRouter, createWebHistory} from 'vue-router';
 
 const Home = () => import('../pages/home.vue');
 const Index = () => import('../pages/index.vue');
-const Edit = () => import('../pages/edit.vue');
 
 const routes = [
     {
@@ -13,12 +12,8 @@ const routes = [
     {
         name: 'index',
         path: '/todo',
-        component: Index
-    },
-    {
-        name: 'Edit',
-        path: '/todo/:id/edit',
-        component: Edit
+        component: Index,
+        props: true
     }
 ]
 
