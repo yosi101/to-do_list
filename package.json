@@ -20,5 +20,8 @@
         "vue-axios": "^3.5.0",
         "vue-loader": "^17.0.0",
         "vue-router": "^4.1.6"
+    },
+    "dependencies": {
+        "vuex": "^4.0.2"
     }
 }

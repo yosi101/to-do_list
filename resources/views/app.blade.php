@@ -20,7 +20,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased">
+<body class="bg-gray-100 dark:bg-[#131a2a]">
     <div id="app">
     </div>
 </body>

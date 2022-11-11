@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -40,7 +40,6 @@ class TaskController extends Controller
     // updates a specific task
     public function update(Request $request, $task)
     {
-
         $existingTask = Task::find($task);
 
         if($existingTask->completed == true) {
@@ -60,7 +59,6 @@ class TaskController extends Controller
         return response()->json([
             'message' => 'Task updated successfully',
         ]);
-
     }
 
     // destroys specific task
