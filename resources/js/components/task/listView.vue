@@ -1,8 +1,8 @@
 <template>
-    <div class="mt-5 overflow-y-auto maximum-height">
+    <div class="mt-5 overflow-y-auto" style="max-height: 27rem">
         <div v-if="tasks.length > 0">
             <div v-for="(task, key) in tasks" :key="key">
-                <listTask :task="task" v-on:taskModified="$emit('reloadList')" />
+                <list-task :task="task" v-on:taskModified="$emit('reloadList')" />
             </div>
         </div>
         <div v-else class="mt-4 text-center">

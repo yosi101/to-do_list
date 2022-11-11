@@ -11,8 +11,8 @@
                         class="fa-solid fa-lg fa-plus"></i></button>
             </div>
             <div v-if="errors.name">
-                    <span class="text-sm text-red-400 ml-2">{{ errors.name[0] }}</span>
-                </div>
+                <span class="text-sm text-red-400 ml-2">{{ errors.name[0] }}</span>
+            </div>
         </form>
     </div>
 </template>
@@ -31,13 +31,21 @@ export default {
     },
     methods: {
         async createTask() {
-            await this.axios.post('/api/todo', this.task).then(response => {
+            const token = localStorage.getItem('token');
+            await this.axios.post('/api/todo', this.task, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                    "x-access-token": token
+                },
+            }).then(response => {
                 this.task.name = "";
+                this.errors = "";
                 this.$emit('newTask');
             }).catch(error => {
-                if (error.response.status === 422){
-                this.errors = error.response.data.errors;
-            }
+                if (error.response.status === 422) {
+                    this.errors = error.response.data.errors;
+                }
             })
         },
     }
