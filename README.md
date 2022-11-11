@@ -1,3 +1,18 @@
+ ## The Project
+
+This is a todo list web application built with laravel, vuejs, tailwindcss and MySql. If you want to view the application:
+
+- Pull the project
+- Open terminal inside the project and run the following commands
+- composer install
+- npm install
+- cp .env.example .env
+- php artisan key:generate
+- Create a schema in phpmyadmin and migrate the database wiih the command php artisan migrate
+- Then run php artisan serve and npm run dev both on different terminals
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
