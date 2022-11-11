@@ -8,7 +8,7 @@ This is a todo list web application built with laravel, vuejs, tailwindcss and M
 - npm install
 - cp .env.example .env
 - php artisan key:generate
-- Create a schema in phpmyadmin and migrate the database
+- Create a schema in phpmyadmin and migrate the database wiih the command php artisan migrate
 - Then run php artisan serve and npm run dev both on different terminals
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------
